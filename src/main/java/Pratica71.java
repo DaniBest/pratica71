@@ -31,13 +31,13 @@ public class Pratica71 {
         out.print("Digite o número de jogadores: ");
 
         while (laco) {
-            if (scanner.hasNextInt()) {
-                numeroInicialDeJogadores = scanner.nextInt();
+            if (scanner.hasNextInt() && (numeroInicialDeJogadores = scanner.nextInt()) >= 0) {
+ //               numeroInicialDeJogadores = scanner.nextInt();
                 out.println();
                 laco = false;
             } else {
-                out.println("Digite novamente o número de jogadores");
-                scanner.next();
+                out.println("Digite novamente o número de jogadores (um número válido desta vez)");
+                scanner.nextLine();
             }
         }
 
@@ -63,8 +63,8 @@ public class Pratica71 {
                         out.println("Digite um número ainda não utilizado!");
                     }
                 } else {
-                    out.println("Reveja seus conceitos!");
-                    scanner.next();
+                    out.println("%nReveja seus conceitos!");
+                    scanner.nextLine();
                 }
             }
         }
@@ -75,7 +75,7 @@ public class Pratica71 {
                 return j1.compareTo(j2);
             }
         });
-        
+
         out.println();
 
         for (Jogador j : jogadores) {
@@ -85,7 +85,7 @@ public class Pratica71 {
 
         numJogador = 1;
         while (numJogador != 0) {
-            out.print("Digite o número do próximo jogador: ");
+            out.print("Digite o número do próximo jogador (número 0 encerra a lista): ");
             if (scanner.hasNextInt()) {
                 numJogador = scanner.nextInt();
                 out.println();
@@ -110,10 +110,18 @@ public class Pratica71 {
                 out.println();
             } else {
                 out.println("Reveja seus conceitos!");
-                scanner.next();
+                scanner.nextLine();
             }
         }
+        
+        scanner.close();
 
+        out.println("Lista de Jogadores Final:");
+        for (Jogador j : jogadores) {
+            out.println(j);
+        }
+
+        
         /*
          JogadorComparator inspetor = new JogadorComparator(false, true, false);
         
